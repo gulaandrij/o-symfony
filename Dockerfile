@@ -12,4 +12,5 @@ RUN docker-php-ext-enable apcu
 RUN curl -sS -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
 RUN docker-php-ext-configure intl --with-icu-dir=/usr/local && docker-php-ext-install intl
 
+
 WORKDIR /var/www/html
