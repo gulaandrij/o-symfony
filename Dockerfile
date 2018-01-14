@@ -23,4 +23,6 @@ RUN mkdir -p /tmp/blackfire \
     && mv /tmp/blackfire/blackfire /usr/bin/blackfire \
     && rm -Rf /tmp/blackfire
 
+RUN composer global require hirak/prestissimo
+
 WORKDIR /var/www/html
