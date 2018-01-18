@@ -9,8 +9,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ADD ./php.ini /usr/local/etc/php/
 RUN pecl install apcu
 RUN docker-php-ext-enable apcu
-RUN curl -sS -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
-RUN docker-php-ext-configure intl --with-icu-dir=/usr/local && docker-php-ext-install intl
 
 RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && curl -A "Docker" -o /tmp/blackfire-probe.tar.gz -D - -L -s https://blackfire.io/api/v1/releases/probe/php/linux/amd64/$version \
