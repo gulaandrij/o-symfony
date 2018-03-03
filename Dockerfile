@@ -1,7 +1,7 @@
 FROM php:7.2-fpm
 
 RUN apt-get update
-RUN apt-get install -y git zip unzip wget curl libpq-dev libjpeg62-turbo-dev libfreetype6-dev libpng-dev libgmp-dev
+RUN apt-get install -y git zip unzip curl libpq-dev libjpeg62-turbo-dev libfreetype6-dev libpng-dev libgmp-dev
 RUN docker-php-ext-install pdo opcache gd pdo_pgsql gmp bcmath zip
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
